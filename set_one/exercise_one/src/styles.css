@@ -1,0 +1,16 @@
+/*
+    define styles nessesary to create a dom element that looks like a terminal console
+*/
+.console-appearance {
+    color:white;
+    background-color:black;
+    font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif; /* https://stackoverflow.com/a/7026202/3068233 */
+}
+.console-shape {
+    padding:15px 10px;
+    border-radius:2px;
+    margin:10px; /* define a default minimum marign between other elements */
+    min-height: 200px;
+    min-width:300px;
+    max-width:600px;
+}

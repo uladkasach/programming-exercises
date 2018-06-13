@@ -1,0 +1,19 @@
+{
+  "name": "exercise_one",
+  "version": "1.0.0",
+  "description": "This exercise programatically simulates the actions of a user interacting with a web service. The output is displayed on the left, and the status of the simulation is displayed on the right.",
+  "main": "index.js",
+  "scripts": {
+    "start": "http-server",
+    "test": "mocha",
+    "doc": "jsdoc src readme.md -r -d docs"
+  },
+  "author": "uladkasach",
+  "license": "ISC",
+  "private": true,
+  "dependencies": {},
+  "devDependencies": {
+    "jsdom": "^11.11.0",
+    "mocha": "^5.2.0"
+  }
+}

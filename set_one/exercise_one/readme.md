@@ -4,6 +4,8 @@ This exercise programatically simulates the actions of a user interacting with a
 
 The users interface is presumed to be a console (e.g., a terminal). Thus, the display is styled to look like a terminal console.
 
+For this exercise, the `user_id` for which we retreive data in this simulation is a constant; however, it can be easily changed in the `main.js` file.
+
 Example:
 
 
@@ -11,16 +13,19 @@ Example:
 
 #### Serverless Usage
 Please run the following JSFiddle for the simple evaluation of this exercise:
-*The JS fiddle sources the content from this github repository using `rawgit.com`*
+
+*The JS fiddle sources tested utility content from this github repository using `rawgit.com`*
 
 #### Manual Usage
-The code can be additionally run manually be serving the index.html file. Running `npm start` will start an http-server which serves the content at `localhost:8080`
+The code can be additionally run manually be serving the index.html file. Running `npm start` will start an http-server which serves the content at `localhost:8080`.
+
+*Note, to conduct this command you will first need to run `npm install`*
 
 ## Testing
 Maximal test coverage was produced with this code utilizing the `mocha` module. The testing scripts are available under `/test`. Running the `npm test` command will conduct all of the tests.
 
 ## Documentation
-The code in this repository was written with JSDom formatted documentation. Running the `npm run doc` command will generate a website containing documentation for all of the content.
+The code in this repository was written with JSDoc formatted documentation. Running the `npm run doc` command will generate a website containing documentation for all of the content.
 
 This documentation can be seen at the following address:
 
@@ -29,4 +34,4 @@ This documentation can be seen at the following address:
     1. JSFiddle (target environment) does not support file structures and thus we can not use relative imports
     2. Node.js (used for testing) does not natively support ES6 imports yet, and the complexity of this code does not warrant adding babel to the work flow.
 2. This exercise was created with a multi-file structure for readability and testability
-    - Testing utilizes Node.js and the Mocha package 
+    - Testing utilizes Node.js and the Mocha package

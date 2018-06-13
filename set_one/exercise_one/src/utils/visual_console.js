@@ -9,6 +9,7 @@
 
     @constructor
     @param {DOM} output_holder - the DOM element where output should be appended.
+    @property output_holder - which DOM element to output logs to
 
     @description
     This module is responsible for creating a simple to use interface for logging to an arbitrary "visual console".
@@ -29,7 +30,7 @@ class Visual_Console {
     **/
     log(output){
         var text_element = window.document.createElement("p"); // create a new text element to hold the output; note, `window.document` (rather than just `document`) is used to support node.js env testing
-        text_element.textContent = output; // define the content of the text element
+        text_element.innerHTML = output; // define the content of the text element; allow html formatting
         this.output_holder.appendChild(text_element); // add the text element to the output
     }
 }

@@ -2,20 +2,21 @@
     <head>
         <!-- load utility resources-->
         <script src = 'utils/visual_console.js'></script>
+        <script src = 'utils/api.js'></script>
 
         <!-- load main resources -->
         <link rel="stylesheet" href="styles.css">
-        <script src = 'main.js' defer></script>
+        <script src = 'main.js' defer></script> <!-- defer to wait untill dom has loaded -->
     </head>
     <body>
         <div style = 'width:100%; display:flex;'>
             <div style = 'margin:auto; display:flex; width:100%; max-width:1000px; flex-flow:row wrap;'>
                 <div id='output' class = 'console-shape console-appearance' style = 'flex:1'>
-                    <div style = 'text-transform:uppercase;'>Console Output</div>
+                    <div style = 'text-transform:uppercase; font-size:16px;'>Console Output</div>
                     <hr>
                 </div>
                 <div id='status' class = 'console-shape console-appearance' style = 'flex:1'>
-                    <div style = 'text-transform:uppercase;'>Simulation Status</div>
+                    <div style = 'text-transform:uppercase; font-size:16px;'>Simulation Status</div>
                     <hr>
                 </div>
             </div>

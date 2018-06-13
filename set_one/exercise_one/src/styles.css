@@ -5,6 +5,7 @@
     color:white;
     background-color:black;
     font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif; /* https://stackoverflow.com/a/7026202/3068233 */
+    font-size:13px;
 }
 .console-shape {
     padding:15px 10px;

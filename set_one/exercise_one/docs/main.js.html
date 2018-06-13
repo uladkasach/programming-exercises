@@ -41,22 +41,106 @@
 const visual_console = {
 	output :  new Visual_Console(window.document.querySelector('#output')),
 	status : new Visual_Console(window.document.querySelector("#status"))
-}
+};
 
+/**
+	@constant
+	@description define which user to load data for; assume constant for this exercise
+**/
+const user_id = 1;
 
 /**
 	begin mimicing user behavior; create a anonymous async function in which we provision the "await" functionality; run it immediately
 **/
 (async function(){
 	/**
-		@description
 		 1. click on a users profile. display:
 			- the user's username
 			- many posts, albums, and todos they have.
 			- the titles of their five most recent posts
-		
 	**/
+	visual_console.status.log("loading a users profile..."); // report that we are retreiving user data
+	let user_data; // define it in the async function scope, outside of the try block
+	try{
+		user_data = await api.retreive_user(user_id); // retreive data from server
+	} catch(error){
+		alert("An error was caught while attempting to interact with the server. Are you sure you are connected to the internet?")
+		throw error; // exits the scope after alerting user
+	}
+	visual_console.status.log("&amp;nbsp;&amp;nbsp;`-> completed ") // report data retreival succeeded
+
+	// output users username and count of posts, albums, and todos
+	visual_console.output.log(`${user_data.meta.username} has ${user_data.posts.length} posts, ${user_data.albums.length} albums, and ${user_data.todos.length} todos`)
+
+	// output the 5 most recent posts;
+	// 		ASSUMPTIONS:
+	//			1. posts are always returned in order of `id` ascending; consequence: we dont have to sort posts data sent by server
+	//			2. post id's are generated in ascending order, meaning higher post id -> more recent post; consequence: we dont need additional information to determine recency or sort by recency
+	user_data.posts
+		.slice(-5) // get the last 5 posts (i.e., the last 5 most recent posts - based on above assumptions)
+		.forEach((post)=>{  visual_console.output.log(`&amp;nbsp;&amp;nbsp; \`-> post ${post.id}: "${post.title}"`) }) // output post title for each post
+
+
+	/**
+		2. after waiting a few seconds, click on the most recent post. display:
+			- title,
+			- body,
+			- comments
+	**/
+	// wait for a few seconds
+	visual_console.status.log(`waiting a few seconds before clicking on most recent post...`); // report that we are waiting
+	await sleep(3000); // wait 3 seconds
+	visual_console.status.log("&amp;nbsp;&amp;nbsp;`-> completed ") // report waiting has ended
+	visual_console.output.log("..."); // distinguish next page visually
+
+	// retreive the data
+	let most_recent_post = user_data.posts.slice(-1)[0];
+	visual_console.status.log(`loading data for post ${most_recent_post.id}...`); // report that we are retreiving post data
+	let post_data; // define it in the async function scope, outside of the try block
+	try{
+		post_data = await api.retreive_post(most_recent_post.id); // retreive data from server
+	} catch(error){
+		alert("An error was caught while attempting to interact with the server. Are you sure you are connected to the internet?")
+		throw error; // exits the scope after alerting user
+	}
+	visual_console.status.log("&amp;nbsp;&amp;nbsp;`-> completed ") // report data retreival succeeded
+
+	// output  data
+	visual_console.output.log(`Viewing post "${post_data.title}" (${post_data.comments.length} comments)`);
+	visual_console.output.log(`&amp;nbsp;&amp;nbsp;\`-> "${post_data.body}"`);
+	visual_console.output.log(`&amp;nbsp;&amp;nbsp;\`-> comments:`);
+	post_data.comments.forEach((comment)=>{ // display each comment
+		visual_console.output.log(`&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;\`-> comment ${comment.id} : "${comment.body}"`);
+	})
+
+
+	/**
+		3. post a comment
+	**/
+	// send the post request
+	visual_console.status.log(`user is posting a comment...`); // report that we are retreiving post data
+	let response; // define it in the async function scope, outside of the try block
+	try{
+		response = await api.post_comment(most_recent_post.id, "Great post!"); // post the comment
+	} catch(error){
+		alert("An error was caught while attempting to interact with the server. Are you sure you are connected to the internet?")
+		throw error; // exits the scope after alerting user
+	}
+	visual_console.status.log("&amp;nbsp;&amp;nbsp;`-> completed ") // report data retreival succeeded
+	visual_console.output.log("..."); // distinguish next page visually
+
+	// display the response
+	visual_console.output.log(`You commented "${response.body}"`)
 })();
+
+/**
+	Asynchronous sleep function
+	@async
+	@param {int} ms - how many ms to sleep
+*/
+function sleep(ms) { // note that we can define this function at the end of the script and the compiler will hoist it to the beginning of the scope
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
 </code></pre>
         </article>
     </section>
@@ -67,13 +151,13 @@ const visual_console = {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-utils_visual_console.html">utils/visual_console</a></li></ul><h3>Classes</h3><ul><li><a href="module-utils_visual_console-Visual_Console.html">Visual_Console</a></li></ul><h3>Global</h3><ul><li><a href="global.html#visual_console">visual_console</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-utils_api.html">utils/api</a></li><li><a href="module-utils_visual_console.html">utils/visual_console</a></li></ul><h3>Classes</h3><ul><li><a href="module-utils_visual_console-Visual_Console.html">Visual_Console</a></li></ul><h3>Global</h3><ul><li><a href="global.html#sleep">sleep</a></li><li><a href="global.html#user_id">user_id</a></li><li><a href="global.html#visual_console">visual_console</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Wed Jun 13 2018 00:00:57 GMT-0400 (EDT)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Wed Jun 13 2018 02:12:43 GMT-0400 (EDT)
 </footer>
 
 <script> prettyPrint(); </script>

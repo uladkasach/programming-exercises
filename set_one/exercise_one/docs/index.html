@@ -43,15 +43,18 @@
 
 
     <section>
-        <article><h2>Overview</h2><p>This exercise programatically simulates the actions of a user interacting with a web service. The output is displayed on the left, and the status of the simulation is displayed on the right.</p>
-<p>The users interface is presumed to be a console (e.g., a terminal). Thus, the display is styled to look like a terminal console.</p>
-<p>Example:</p>
-<h2>Usage</h2><h4>Serverless Usage</h4><p>Please run the following JSFiddle for the simple evaluation of this exercise:
-<em>The JS fiddle sources the content from this github repository using <code>rawgit.com</code></em></p>
-<h4>Manual Usage</h4><p>The code can be additionally run manually be serving the index.html file. Running <code>npm start</code> will start an http-server which serves the content at <code>localhost:8080</code></p>
-<h2>Testing</h2><p>Maximal test coverage was produced with this code utilizing the <code>mocha</code> module. The testing scripts are available under <code>/test</code>. Running the <code>npm test</code> command will conduct all of the tests.</p>
-<h2>Documentation</h2><p>The code in this repository was written with JSDom formatted documentation. Running the <code>npm run doc</code> command will generate a website containing documentation for all of the content.</p>
-<p>This documentation can be seen at the following address:</p>
+        <article><h2>Overview</h2><p>This exercise programatically simulates the actions of a user interacting with a web service. The users interface is presumed to be a console (e.g., a terminal).  In this implementation, the output is displayed on the left, and the status of the simulation is displayed on the right.</p>
+<p>The solution uses es6 syntax, JSDoc style documentations, and Mocha.js for test cases.  </p>
+<p>Example:
+<img src="https://user-images.githubusercontent.com/10381896/41332576-6478b3f6-6eac-11e8-8ac6-d6e819a8b1b9.png" alt="screenshot_2018-06-13_01-48-42"></p>
+<h2>Usage</h2><h4>Serverless Usage</h4><p>Please run the following JSFiddle for the simple evaluation of this exercise: https://jsfiddle.net/uladkasach/25v8pqwc/21/</p>
+<p><em>Note: all the js on JSFiddle was merged to one page, as JSFiddle does not deal with file structures. This is different from the structure found in the source repository here.</em></p>
+<h4>Manual Usage</h4><p>The code can be additionally run manually be serving the index.html file. Running <code>npm start</code> will start an http-server which serves the content at <code>localhost:8080</code>.</p>
+<p><em>Note, to conduct this command you will first need to run <code>npm install</code></em></p>
+<h2>Testing</h2><p>Test coverage was produced utilizing the <code>mocha</code> module. The testing scripts are available under <code>/test</code>. Running the <code>npm test</code> command will conduct all of the tests.</p>
+<p><img src="https://user-images.githubusercontent.com/10381896/41332937-b9307504-6ead-11e8-8c95-b5c503bbf02d.png" alt="screenshot_2018-06-13_02-01-29"></p>
+<h2>Documentation</h2><p>The code in this repository was written with JSDoc formatted documentation. Running the <code>npm run doc</code> command will generate a website containing documentation for all of the content.</p>
+<p>This documentation can be seen at the following address: https://rawgit.com/uladkasach/programming-exercises/master/set_one/exercise_one/docs/index.html</p>
 <h2>Comments</h2><ol>
 <li>This exercise did not utilize ES6 imports as<ol>
 <li>JSFiddle (target environment) does not support file structures and thus we can not use relative imports</li>
@@ -59,9 +62,10 @@
 </ol>
 </li>
 <li>This exercise was created with a multi-file structure for readability and testability<ul>
-<li>Testing utilizes Node.js and the Mocha package </li>
+<li>Testing utilizes Node.js and the Mocha package</li>
 </ul>
 </li>
+<li>The <code>user_id</code> for which we retrieve data in the simulation is a constant as the focus of the prompt was not on user interfaces but interacting with servers</li>
 </ol></article>
     </section>
 
@@ -166,13 +170,13 @@
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-utils_visual_console.html">utils/visual_console</a></li></ul><h3>Classes</h3><ul><li><a href="module-utils_visual_console-Visual_Console.html">Visual_Console</a></li></ul><h3>Global</h3><ul><li><a href="global.html#visual_console">visual_console</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-utils_api.html">utils/api</a></li><li><a href="module-utils_visual_console.html">utils/visual_console</a></li></ul><h3>Classes</h3><ul><li><a href="module-utils_visual_console-Visual_Console.html">Visual_Console</a></li></ul><h3>Global</h3><ul><li><a href="global.html#sleep">sleep</a></li><li><a href="global.html#user_id">user_id</a></li><li><a href="global.html#visual_console">visual_console</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Wed Jun 13 2018 00:00:57 GMT-0400 (EDT)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Wed Jun 13 2018 02:12:43 GMT-0400 (EDT)
 </footer>
 
 <script> prettyPrint(); </script>

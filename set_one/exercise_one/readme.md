@@ -21,7 +21,10 @@ The code can be additionally run manually be serving the index.html file. Runnin
 *Note, to conduct this command you will first need to run `npm install`*
 
 ## Testing
-Maximal test coverage was produced with this code utilizing the `mocha` module. The testing scripts are available under `/test`. Running the `npm test` command will conduct all of the tests.
+Test coverage was produced utilizing the `mocha` module. The testing scripts are available under `/test`. Running the `npm test` command will conduct all of the tests.
+
+![screenshot_2018-06-13_02-01-29](https://user-images.githubusercontent.com/10381896/41332937-b9307504-6ead-11e8-8c95-b5c503bbf02d.png)
+
 
 ## Documentation
 The code in this repository was written with JSDoc formatted documentation. Running the `npm run doc` command will generate a website containing documentation for all of the content.

@@ -29,7 +29,7 @@ Test coverage was produced utilizing the `mocha` module. The testing scripts are
 ## Documentation
 The code in this repository was written with JSDoc formatted documentation. Running the `npm run doc` command will generate a website containing documentation for all of the content.
 
-This documentation can be seen at the following address:
+This documentation can be seen at the following address: https://rawgit.com/uladkasach/programming-exercises/master/set_one/exercise_one/docs/index.html
 
 ## Comments
 1. This exercise did not utilize ES6 imports as

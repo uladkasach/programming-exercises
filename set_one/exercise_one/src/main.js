@@ -32,7 +32,13 @@ const user_id = 1;
 			- the titles of their five most recent posts
 	**/
 	visual_console.status.log("loading a users profile..."); // report that we are retreiving user data
-	let user_data = await api.retreive_user(user_id); // retreive data from server
+	let user_data; // define it in the async function scope, outside of the try block
+	try{
+		user_data = await api.retreive_user(user_id); // retreive data from server
+	} catch(error){
+		alert("An error was caught while attempting to interact with the server. Are you sure you are connected to the internet?")
+		throw error; // exits the scope after alerting user
+	}
 	visual_console.status.log("&nbsp;&nbsp;`-> completed ") // report data retreival succeeded
 
 	// output users username and count of posts, albums, and todos
@@ -62,7 +68,13 @@ const user_id = 1;
 	// retreive the data
 	let most_recent_post = user_data.posts.slice(-1)[0];
 	visual_console.status.log(`loading data for post ${most_recent_post.id}...`); // report that we are retreiving post data
-	let post_data = await api.retreive_post(most_recent_post.id); // retreive data from server
+	let post_data; // define it in the async function scope, outside of the try block
+	try{
+		post_data = await api.retreive_post(most_recent_post.id); // retreive data from server
+	} catch(error){
+		alert("An error was caught while attempting to interact with the server. Are you sure you are connected to the internet?")
+		throw error; // exits the scope after alerting user
+	}
 	visual_console.status.log("&nbsp;&nbsp;`-> completed ") // report data retreival succeeded
 
 	// output  data
@@ -79,7 +91,13 @@ const user_id = 1;
 	**/
 	// send the post request
 	visual_console.status.log(`user is posting a comment...`); // report that we are retreiving post data
-	let response = await api.post_comment(most_recent_post.id, "Great post!"); // post the comment
+	let response; // define it in the async function scope, outside of the try block
+	try{
+		response = await api.post_comment(most_recent_post.id, "Great post!"); // post the comment
+	} catch(error){
+		alert("An error was caught while attempting to interact with the server. Are you sure you are connected to the internet?")
+		throw error; // exits the scope after alerting user
+	}
 	visual_console.status.log("&nbsp;&nbsp;`-> completed ") // report data retreival succeeded
 	visual_console.output.log("..."); // distinguish next page visually
 
